@@ -37,11 +37,11 @@
             text-decoration: underline;
         }
         main {
-            padding: 20px;
-            max-width: 80%;
+            /* padding: 20px; */
+            max-width: 100%;
             margin: auto;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f4f4f4;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
         }
         section {
             display: none; /* 默认隐藏所有内容 */
@@ -51,7 +51,7 @@
         }
         footer {
             background-color: #282c34;
-            color: white;
+            color: #f4f4f4;
             text-align: center;
             padding: 10px;
             position: fixed;
@@ -79,6 +79,17 @@
                     element.style.display = 'none';
                 }
             });
+
+            const titles = document.querySelectorAll('h1');
+            titles.forEach(title => {
+                if (title.getAttribute('data-lang') === lang) {
+                    title.classList.add('active'); // 添加 active 类，触发动画
+                    title.style.display = 'block'; // 确保显示
+                } else {
+                    title.classList.remove('active'); // 移除 active 类
+                    title.style.display = 'none'; // 隐藏其他语言标题
+                }
+            });
         }
 
         function showSection(sectionId) {
@@ -102,13 +113,99 @@
 <body>
 
 <header>
-    <h1 data-lang="zh">GCR：让你的shell更加强大！</h1>
-    <h1 data-lang="en" style="display:none;">GCR: make your shell more powerful!</h1>
+    <h1 data-lang="zh" style="font-size: 300%;">GCR</h1>
+    <h1 data-lang="zh" class="animated-title" style="font-size: 200%;">让你的Shell更加强大</h1>
+    <h1 data-lang="en" style="font-size: 300%; display:none;">GCR</h1>
+    <h1 data-lang="en" class="animated-title" style="font-size: 200%; display:none;">make your shell more powerful</h1>
     <div class="lang-switch">
-        <button onclick="switchLanguage('zh')">中文</button>
-        <button onclick="switchLanguage('en')">English</button>
+        <button class="apple-button" onclick="switchLanguage('zh')">&nbsp; &nbsp;中文&nbsp; &nbsp;</button>
+        <button class="apple-button" onclick="switchLanguage('en')">English</button>
     </div>
+
+    <style>
+
+        /* 定义动画 */
+        @keyframes slide-up {
+            0% {
+                transform: translateY(100%); /* 从header底部 */
+                opacity: 0; /* 初始透明 */
+            }
+            100% {
+                transform: translateY(0); /* 到达原位置 */
+                opacity: 1; /* 完全不透明 */
+            }
+        }
+
+        /* 为 h1 元素添加动画效果，初始不显示 */
+        .animated-title {
+            position: relative;
+            opacity: 0; /* 初始透明 */
+            transform: translateY(100%); /* 初始位置在页面底部 */
+            animation: slide-up 1s ease-out forwards; /* 1秒完成动画，保持最终状态 */
+            visibility: hidden; /* 初始隐藏 */
+        }
+
+        /* 当动画开始时，让 h1 元素可见 */
+        .animated-title.active {
+            visibility: visible; /* 动画开始时显示 */
+            animation: slide-up 1s ease-out forwards;
+        }
+
+        /* 可选：控制不同 h1 标签的动画延迟，避免同时出现 */
+        .animated-title:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        .animated-title:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        .animated-title:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        .animated-title:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        h1 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .apple-button {
+            padding: 10px 20px;
+            border: solid;
+            border-color: rgb(199, 196, 196);
+            border-width: 1px;
+            border-radius: 30px;
+            /* background: linear-gradient(135deg, #f5f5f7, #e3e3e6); */
+            background: #282c34;
+            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+            font-size: 20%;
+            color: #ffffff;
+            cursor: pointer;
+            /* transition: background 0.3s ease, box-shadow 0.3s ease; */
+            height: 20%; /* 固定高度 */
+            line-height: 100%; /* 使文字垂直居中 */
+            display: inline-block;
+            color: #ffffff;
+            font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+        }
+
+        .apple-button:hover {
+            /* background: linear-gradient(135deg, #e3e3e6, #d1d1d4); */
+            background: #cccfcc;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            color: black;
+        }
+
+        .apple-button:active {
+            /* background: linear-gradient(135deg, #d1d1d4, #bdbdc0); */
+            background: #282c34;
+            border-color: white;
+            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+
 </header>
+
 
 <nav>
     <a onclick="showSection('home')" data-lang="zh" >首页</a>
@@ -135,7 +232,7 @@
         <div class="content-wrapper">
             <!-- 功能展示 -->
             <div class="features">
-                <p data-lang="zh" id="typewriter-zh"></h2>
+                <p data-lang="zh" id="typewriter-zh">GCR: 基于zsh的终端集成插件, 让你更自然地掌控终端！</h2>
                 <p data-lang="en" id="typewriter-en" style="display: none;"></h2>
             </div>
             
@@ -206,7 +303,7 @@
     <style>
         .home-section {
             /* background: linear-gradient(135deg, #635f5f, #8c8282); */
-            background: #ffffff;
+            background: #f4f4f4;
             padding-bottom: 100px;
             /* padding: 100px 20px; */
             color: white;
@@ -233,6 +330,7 @@
             margin-bottom: 30px;
             color: #333;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
         }
 
         .slides p {
@@ -251,7 +349,7 @@
     
         .video-demo {
             position: relative;
-            max-width: 80%;
+            max-width: min(80%, 1500px);
             margin: 0 auto;
             overflow: hidden;
         }
@@ -412,10 +510,10 @@
         }
 
         // 启动打字机效果
-        document.addEventListener("DOMContentLoaded", function() {
-            typewriterEffect('typewriter-zh', 'GCR: 基于zsh的终端集成插件, 让你更自然地掌控终端！', 100, 2000); // 500ms 间隔显示字符，显示完后2秒消失
-            typewriterEffect('typewriter-en', 'GCR: Terminal integration plugin for zsh, allowing you to control the terminal more naturally!', 100, 2000); // 英文版可以选择不启动，或者使用按钮切换语言时触发
-        });                                                 
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     typewriterEffect('typewriter-zh', 'GCR: 基于zsh的终端集成插件, 让你更自然地掌控终端！', 100, 2000); // 500ms 间隔显示字符，显示完后2秒消失
+        //     typewriterEffect('typewriter-en', 'GCR: Terminal integration plugin for zsh, allowing you to control the terminal more naturally!', 100, 2000); // 英文版可以选择不启动，或者使用按钮切换语言时触发
+        // });                                                 
     </script>
     
 
@@ -581,6 +679,8 @@ source ~/.ohmyshell</code></pre>
     <style>
         .installation-section {
             padding-bottom: 100px;
+            max-width: 80%;
+            margin: 0 auto;
         }
 
         .installation-method {
@@ -719,7 +819,7 @@ source ~/.ohmyshell</code></pre>
         <div class="faq-item">
             <h3 data-lang="zh">问题 1：GCR 这个名字是否有特殊的含义？</h3>
             <h3 data-lang="en" style="display: none;">Question 1: Does the name has special meaning?</h3>
-            <p data-lang="zh">没有。项目建立时刚从微软离职，微软的集群使用中有名为GCR的工具，叫着顺口遂取名为GCR。</p>
+            <p data-lang="zh">项目建立时刚从微软离职，微软的集群使用中有名为GCR的工具，叫着顺口遂取名为GCR。</p>
             <p data-lang="en" style="display: none;">No.</p>
         </div>
 
