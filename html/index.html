@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>GCR Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #282c34;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            margin: 0;
+            padding: 15px;
+            background-color: #333;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 5%;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 20px;
+            max-width: 80%;
+            margin: auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            display: none; /* 默认隐藏所有内容 */
+        }
+        section.active {
+            display: block; /* 显示被激活的部分 */
+        }
+        footer {
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .lang-switch button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function switchLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(element => {
+                if (element.getAttribute('data-lang') === lang) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+        }
+
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        }
+
+        window.onload = function() {
+            switchLanguage('zh');
+            // 默认显示 Home 部分
+            showSection('home');
+        }
+    </script>
+</head>
+<body>
+
+<header>
+    <h1 data-lang="zh">GCR：让你的shell更加强大！</h1>
+    <h1 data-lang="en" style="display:none;">GCR: make your shell more powerful!</h1>
+    <div class="lang-switch">
+        <button onclick="switchLanguage('zh')">中文</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
+</header>
+
+<nav>
+    <a onclick="showSection('home')" data-lang="zh" >首页</a>
+    <a onclick="showSection('home')" data-lang="en" style="display:none;">Home</a>
+
+    <a onclick="showSection('installation')" data-lang="zh" >安装</a>
+    <a onclick="showSection('installation')" data-lang="en" style="display:none;">Installation</a>
+
+    <a onclick="showSection('usage')" data-lang="zh" >使用说明</a>
+    <a onclick="showSection('usage')" data-lang="en" style="display:none;">Usage</a>
+
+    <a onclick="showSection('faq')" data-lang="zh" >常见问题</a>
+    <a onclick="showSection('faq')" data-lang="en" style="display:none;">FAQ</a>
+
+    <a onclick="showSection('contact')" data-lang="zh" >联系作者</a>
+    <a onclick="showSection('contact')" data-lang="en" style="display:none;">Contact</a>
+
+</nav>
+
+
+<main>
+    <!-- home-section-->
+    <section id="home" class="home-section">
+        <div class="content-wrapper">
+            <!-- 功能展示 -->
+            <div class="features">
+                <p data-lang="zh" id="typewriter-zh"></h2>
+                <p data-lang="en" id="typewriter-en" style="display: none;"></h2>
+            </div>
+            
+            <!-- 演示视频区域 -->
+            <div class="video-demo">
+
+                <!-- 小圆点轮播导航 -->
+                <div class="dots">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                </div>
+                <div class="slider">
+                    <div class="slides">
+                        <div class="slide active" id="slide1">
+                            <p data-lang="zh">服务器登陆新范式！集成开源工具tssh，自定义多服务器的分组和智能登陆，更方便地管理你的服务器集群，不再需要记忆复杂的服务器地址和别名！</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/tssh_login.gif" alt="Demo 1">
+                        </div>
+                        <div class="slide" id="slide2">
+                            <p data-lang="zh">终端键入新范式！自动提示和补全：基于zsh强大的生态，集成了自动提示和补全的开源工具，可以记忆你过去使用的终端命令并在你需要的时候给你提示，不再只基于开头匹配，不再区分大小写！</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/complete.gif" alt="Demo 2">
+                        </div>
+                        <div class="slide" id="slide3">
+                            <p data-lang="zh">软件安装新范式！集成多个常用的软件安装包，让你在不同平台安装常用的开发工具时一键完成，无需顾虑太多，不再需要一步一步输入安装命令！</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/install.gif" alt="Demo 3">
+                        </div>
+                        <div class="slide" id="slide4">
+                            <p data-lang="zh">文件编辑新范式！让sublime text / vs code 的强大功能在终端随时可用，code命令可以直接调用本地sublime/vscode查看和编辑本地/远程文件，并自动同步，让每个人都精通vim的方式是取代vim！</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/code.gif" alt="Demo 4">
+                        </div>
+                        <div class="slide" id="slide5">
+                            <p data-lang="zh">文件传输新范式！所见即所得，支持本地拖拽文件（夹）到终端直接完成上传，或在终端直接下载文件（夹）到本地，不再需要第三方软件和不定期卡死的VS Code!</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/file.gif" alt="Demo 5">
+                        </div>
+                        <div class="slide" id="slide6">
+                            <p data-lang="zh">文件删除新范式！del命令取代原生rm命令，删除前再也不用烦恼文件夹前忘记-r，无论是啥，del统统删除，什么，误删了文件怎么办？del自带回收站系统让你轻松找回误删文件！</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <img src="data/del.gif" alt="Demo 6">
+                        </div>
+                        <div class="slide" id="slide7">
+                            <p data-lang="zh">...更多内容持续更新中...</p>
+                            <p data-lang="en" style="display:none;"></p>
+                            <!-- <img src="data/demo.gif" alt="Demo 7"> -->
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- "开始使用"按钮 -->
+            <div class="buttons">
+                <button onclick="showSection('installation')" data-lang="zh">开始使用</button>
+                <button onclick="showSection('installation')" data-lang="en" style="display:none;">Get Started</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CSS 样式 -->
+    <style>
+        .home-section {
+            /* background: linear-gradient(135deg, #635f5f, #8c8282); */
+            background: #ffffff;
+            padding-bottom: 100px;
+            /* padding: 100px 20px; */
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+    
+        .home-section .content-wrapper {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+    
+        .home-section h2 {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+    
+        .home-section p {
+            font-size: 20px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .slides p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+            width: 80%;
+            margin: auto auto;
+            margin-bottom: 5%;
+            /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+        }
+    
+        .features {
+            margin: 5%;
+        }
+    
+        .video-demo {
+            position: relative;
+            max-width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+    
+        .slider {
+            position: relative;
+            width: 100%;
+        }
+    
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+    
+        .slide {
+            min-width: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+    
+        .slide img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .dots {
+            text-align: center;
+            margin-bottom: 5%;
+        }
+    
+        .dots .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+    
+        .dots .dot:hover, .dots .dot.active {
+            background-color: #5477f5;
+        }
+    
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+    
+        .buttons button {
+            background-color: #ffffff;
+            color: #5477f5;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        .buttons button:hover {
+            background-color: #e0e0ff;
+            transform: scale(1.05);
+        }
+
+        /* 基础样式 */
+        .features h2 {
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 隐藏文字起始状态 */
+        .typewriter-text {
+            opacity: 0;
+        }
+
+        /* 打字机效果 */
+        @keyframes typewriter {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes disappear {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    
+    <!-- JavaScript 实现轮播效果 -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+    
+        function showSlides(n) {
+            const slides = document.querySelectorAll(".slide");
+            const dots = document.querySelectorAll(".dot");
+            if (n > slides.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slides.length;
+            }
+            slides.forEach((slide, index) => {
+                slide.style.display = (index + 1 === slideIndex) ? "block" : "none";
+            });
+            dots.forEach((dot, index) => {
+                dot.classList.remove("active");
+                if (index + 1 === slideIndex) {
+                    dot.classList.add("active");
+                }
+            });
+        }
+
+        function typewriterEffect(elementId, text, interval, delayBeforeDisappear) {
+            const element = document.getElementById(elementId);
+            let index = 0;
+            element.textContent = ''; // 清空初始文本
+
+            function type() {
+                if (index < text.length) {
+                    element.textContent += text.charAt(index); // 逐个显示字符
+                    index++;
+                    setTimeout(type, interval); // 设置下一个字符的显示时间
+                } else {
+                    // 等待一段时间后让整行消失
+                    setTimeout(() => {
+                        element.style.animation = 'disappear 1s forwards'; // 文字消失动画
+                        setTimeout(() => {
+                            element.textContent = ''; // 重置文字
+                            element.style.animation = ''; // 重置动画
+                            index = 0; // 重置索引
+                            type(); // 再次开始打字效果
+                        }, 1000); // 文字消失动画时间后再重置
+                    }, delayBeforeDisappear);
+                }
+            }
+
+            type();
+        }
+
+        // 启动打字机效果
+        document.addEventListener("DOMContentLoaded", function() {
+            typewriterEffect('typewriter-zh', 'GCR: 基于zsh的终端集成插件, 让你更自然地掌控终端！', 100, 2000); // 500ms 间隔显示字符，显示完后2秒消失
+            typewriterEffect('typewriter-en', 'GCR: Terminal integration plugin for zsh, allowing you to control the terminal more naturally!', 100, 2000); // 英文版可以选择不启动，或者使用按钮切换语言时触发
+        });                                                 
+    </script>
+    
+
+    <!-- installation content -->
+    <section id="installation" class="installation-section">
+        <!-- 标题 -->
+        <h2 data-lang="zh">安装</h2>
+        <h2 data-lang="en" style="display: none;">Installation</h2>
+    
+        <!-- 一键式安装 -->
+        <div class="installation-method">
+            <h3 data-lang="zh">一键式安装(推荐)</h3>
+            <h3 data-lang="en" style="display: none;">One-click Installation</h3>
+            
+            <p data-lang="zh">通过以下命令可以快速安装GCR插件：</p>
+            <p data-lang="en" style="display: none;">Use the following command to quickly install the GCR plugin:</p>
+            
+            <!-- 代码段和复制按钮 -->
+            <div class="code-container" data-lang="zh">
+                <pre><code id="code-zh-1">curl -s https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh -o ~/install_gcr.sh && bash ~/install_gcr.sh && rm ~/install_gcr.sh</code></pre>
+                <button class="copy-btn" id='copy-btn-code-zh-1' onclick="copyCode('code-zh-1')">复制</button>
+            </div>
+            <div class="code-container" data-lang="en" style="display: none;">
+                <pre><code id="code-en-1">curl -s https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh -o ~/install_gcr.sh && bash ~/install_gcr.sh && rm ~/install_gcr.sh</code></pre>
+                <button class="copy-btn" id='copy-btn-code-en-1' onclick="copyCode('code-en-1')">Copy</button>
+            </div>
+
+            <p data-lang="zh">您可以按照屏幕提示根据您使用的操作系统和用户权限选择对应的安装方式。</p>
+            <p data-lang="en" style="display: none;"></p>
+
+            <p data-lang="zh">目前一键安装支持的操作系统有：Ubuntu, MacOS, NUS HPC, NUS Medicine HPC, NSCC Singapore. 理论上一切支持zsh的操作系统（目前市面上大多数操作系统应该都支持）均可以支持GCR，但是部分操作系统安装zsh的方式略有不同，且某些安装方式需要root权限，不同权限的用户安装方式也会略有不同。 一键脚本在未来会尽可能支持更多操作系统，若在安装过程中遇到问题，可先自行安装zsh，并设置zsh为默认shell，然后再按照脚本内容自行安装GCR即可。</p>
+            <p data-lang="en" style="display: none;"></p>
+
+            <p data-lang="zh">由于windows与类unix操作系统底层命令差异较大，短期内不考虑支持。</p>
+            <p data-lang="en" style="display: none;"></p>
+
+            <p data-lang="zh">若您原先较为依赖bashrc / bash_profile的配置，请自行移植需要的配置到zshrc。 继续阅读分步安装有助于你更好的理解如何移植。</p>
+            <p data-lang="en" style="display: none;"></p>
+        </div>
+    
+        <!-- 分步手动安装 -->
+        <div class="installation-method">
+            <h3 data-lang="zh">分步手动安装</h3>
+            <h3 data-lang="en" style="display: none;">Step-by-step Manual Installation</h3>
+    
+            <p data-lang="zh">如果您想手动安装，请按以下步骤操作：</p>
+            <p data-lang="en" style="display: none;">If you prefer to install manually, please follow these steps:</p>
+            
+            <ol data-lang="zh">
+                <li>下载GCR插件代码：</li>
+                <!-- 代码段和复制按钮 -->
+                    <div class="code-container" data-lang="zh">
+                        <pre><code id="code-zh-2">git clone https://github.com/gaojunbin/GCR.git</code></pre>
+                        <button class="copy-btn" id='copy-btn-code-zh-2' onclick="copyCode('code-zh-2')">复制</button>
+                    </div>
+                    <div class="code-container" data-lang="en" style="display: none;">
+                        <pre><code id="code-en-2">git clone https://github.com/gaojunbin/GCR.git</code></pre>
+                        <button class="copy-btn" id='copy-btn-code-en-2' onclick="copyCode('code-en-2')">Copy</button>
+                    </div>
+    
+                <li>自行安装zsh</li>
+                    <pre><code>
+sudo apt-get install zsh # Ubuntu
+sudo yum install zsh # CentOS
+brew install zsh # MacOS (Homebrew)
+                    </code></pre>
+                    <p data-lang="zh">MacOS市面上大多数系统已经默认预装zsh且作为预设shell (MAC YYDS)， 若需要升级zsh版本，可通过Homebrew包管理器，由于MAC经历了x86到arm架构的变化，Homebrew的安装也有细微的改变，官方目前有较为完整的解决方案，可参考<a href="https://brew.sh">Homebrew官网</a>。安装完毕后即可使用Homebrew安装/更新zsh，请注意环境路径，使得系统zsh可以找到并使用你预期路径下的zsh。</p>
+                    <p data-lang="en" style="display: none;"></p>
+
+                    <p data-lang="zh">对于其他操作系统，如果是服务器端无法使用一键脚本成功安装，请先确认服务器是否预安装了较新版zsh（部分较老版本的ubuntu等系统预装zsh太旧无法支持完整功能），若需要重新安装zsh，可按照对应系统自行安装。请注意，默认情况下安装zsh需要root权限，如果你所使用的账号没有root权限，你可以从<a href="https://www.zsh.org">zsh官方</a>下载源代码并自行编译安装（一键脚本中HPC， NSCC等就是采用了这样的解决方案），但是自行编译安装会因为操作系统等因素遇到各种不一样的问题，请关注官方仓库寻求解决方案。<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">oh-my-zsh</a>提供了一些安装指导，供参考。</p>
+                    <p data-lang="en" style="display: none;"></p>
+                
+                <li>安装GCR</li>
+                <p data-lang="zh">GCR基于开源工具oh-my-zsh,但是修改了部分内容，如果您之前已经在使用oh-my-zsh，请先卸载oh-my-zsh并清理原始文件，防止与GCR冲突。</p>
+                <p data-lang="en" style="display: none;"></p>
+
+                <p data-lang="zh">1) 检查GCR下载的目录以及$HOME下是否有足够的磁盘空间 （GCR不需要很大的空间，但请留出>5GB存储防止意外）</p>
+                <p data-lang="en" style="display: none;"></p>
+
+                <p data-lang="zh">2) 检查zsh是否正常安装以及版本是否较新 (> 5.0)</p>
+                <p data-lang="en" style="display: none;"></p>
+                <div class="code-container" data-lang="zh">
+                    <pre><code id="code-zh-3">zsh --version</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-zh-3' onclick="copyCode('code-zh-3')">复制</button>
+                </div>
+                <div class="code-container" data-lang="en" style="display: none;">
+                    <pre><code id="code-en-3">zsh --version</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-3' onclick="copyCode('code-en-3')">Copy</button>
+                </div>
+
+                <p data-lang="zh">3) 设置zsh默认shell (有root权限)</p>
+                <p data-lang="en" style="display: none;"></p>
+                <div class="code-container" data-lang="zh">
+                    <pre><code id="code-zh-4">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-zh-4' onclick="copyCode('code-zh-4')">复制</button>
+                </div>
+                <div class="code-container" data-lang="en" style="display: none;">
+                    <pre><code id="code-en-4">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-4' onclick="copyCode('code-en-4')">Copy</button>
+                </div>
+
+                <p data-lang="zh">3') 设置zsh默认shell (没有root权限)</p>
+                <p data-lang="en" style="display: none;"></p>
+                <div class="code-container" data-lang="zh">
+                    <pre><code id="code-zh-5"># 添加下面的代码到你的默认shell配置下，以bash为例，你可以添加到～/.bashrc或者~/.bash_profile下, $path/to/zsh是你zsh安装的路径
+
+[ -f $path/to/zsh ] && exec $path/to/zsh -l</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-zh-5' onclick="copyCode('code-zh-5')">复制</button>
+                </div>
+                <div class="code-container" data-lang="en" style="display: none;">
+                    <pre><code id="code-zh-5">
+                    </code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-5' onclick="copyCode('code-en-5')">Copy</button>
+                </div>
+
+                <p data-lang="zh">4) 进入GCR文件夹并拷贝GCR依赖文件</p>
+                <p data-lang="en" style="display: none;"></p>
+                <div class="code-container" data-lang="zh">
+                    <pre><code id="code-zh-6">cp .ohmyshell ~/
+cp .ohmytool ~/
+cp .ohmyzsh ~/
+cp .p9k.zsh ~/
+cp .ohmyprint ~/
+cp -r oh-my-zsh ~/.oh-my-zsh</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-zh-6' onclick="copyCode('code-zh-6')">复制</button>
+                </div>
+                <div class="code-container" data-lang="en" style="display: none;">
+                    <pre><code id="code-en-6">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-6' onclick="copyCode('code-en-6')">Copy</button>
+                </div>
+
+                <p data-lang="zh">5) 生成GCR配置文件 .zshrc 到$HOME目录下</p>
+                <p data-lang="en" style="display: none;"></p>
+                <div class="code-container" data-lang="zh">
+                    <pre><code id="code-zh-7">SHOW_GCR_INFO=false
+CHECK_GCR_UPDATE=true
+source ~/.ohmyzsh
+source ~/.p9k.zsh
+source ~/.ohmyshell</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-zh-7' onclick="copyCode('code-zh-7')">复制</button>
+                </div>
+                <div class="code-container" data-lang="en" style="display: none;">
+                    <pre><code id="code-en-7">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-7' onclick="copyCode('code-en-7')">Copy</button>
+                </div>
+
+                <p data-lang="zh">6) 迁移原shell中有用的部分</p>
+                <p data-lang="en" style="display: none;"></p>
+                <p data-lang="zh">迁移原shell中有用的部分到新的文件，并在.zshrc中source该文件，也可以直接迁移到.zshrc中，但是建议不要直接写在主文件中</p>
+                <p data-lang="en" style="display: none;"></p>
+                
+                <p data-lang="zh">7) 至此，你的GCR安装完毕！</p>
+                <p data-lang="en" style="display: none;"></p>
+                
+            </ol>
+    
+            <ol data-lang="en" style="display: none;">
+                
+            </ol>
+        </div>
+    </section>
+
+    <style>
+        .installation-section {
+            padding-bottom: 100px;
+        }
+
+        .installation-method {
+            margin-bottom: 40px;
+        }
+        .installation-section h2 {
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: #d63384;
+            font-size: 16px;
+        }
+
+        .code-container {
+            position: relative;
+            margin: auto;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: auto 0;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #45a049;
+        }       
+    </style>
+
+    <script>
+        function copyCode(codeId) {
+            const codeElement = document.getElementById(codeId);
+            const textToCopy = codeElement.innerText;
+
+            // 创建一个临时的输入框来复制文本
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+
+            // 选择并复制文本
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            // 复制成功后，移除临时输入框
+            document.body.removeChild(tempTextArea);
+
+            const copyButton = document.getElementById(`copy-btn-${codeId}`);
+            if (copyButton.innerText === '复制') {
+                copyButton.innerText = '已复制';
+            }
+            if (copyButton.innerText === 'Copy') {
+                copyButton.innerText = 'Copied';
+            }
+            
+            // 2秒后恢复按钮文本
+            setTimeout(() => {
+                if (copyButton.innerText === '已复制') {
+                    copyButton.innerText = '复制';
+                }
+                if (copyButton.innerText === 'Copied') {
+                    copyButton.innerText = 'Copy';
+                }
+            }, 2000);
+        }
+    </script>
+
+
+
+    <section id="usage">
+        <h2 data-lang="zh">使用说明</h2>
+        <h2 data-lang="en" style="display: none;">Usage</h2>
+        <p data-lang="zh">即将上线...</p>
+        <p data-lang="en" style="display:none;">Coming soon...</p>
+    </section>
+
+    <style>
+        #usage {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #usage h2, #usage h3 {
+            color: #333;
+            text-align: center;
+        }
+
+    </style>
+    <section id="customization">
+        <h2>Customization</h2>
+        <p data-lang="zh"></p>
+        <p data-lang="en" style="display:none;"></p>
+    </section>
+
+    <section id="faq">
+        <h2 data-lang="zh">常见问题 (FAQ)</h2>
+        <h2 data-lang="en" style="display: none;">Frequently Asked Questions (FAQ)</h2>
+    
+        <!-- 问题列表 -->
+
+        <div class="faq-item">
+            <h3 data-lang="zh">问题 1：GCR 这个名字是否有特殊的含义？</h3>
+            <h3 data-lang="en" style="display: none;">Question 1: Does the name has special meaning?</h3>
+            <p data-lang="zh">没有。项目建立时刚从微软离职，微软的集群使用中有名为GCR的工具，叫着顺口遂取名为GCR。</p>
+            <p data-lang="en" style="display: none;">No.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3 data-lang="zh">问题 2：如何安装 GCR 插件？</h3>
+            <h3 data-lang="en" style="display: none;">Question 2: How to install the GCR plugin?</h3>
+            <p data-lang="zh">您可以通过一键式安装命令来快速安装，或按照手动步骤操作。</p>
+            <p data-lang="en" style="display: none;">You can install it using the one-click installation command or follow the manual steps.</p>
+        </div>
+    
+        <div class="faq-item">
+            <h3 data-lang="zh">问题 3：如何自定义 GCR 插件配置？</h3>
+            <h3 data-lang="en" style="display: none;">Question 3: How to customize GCR plugin configurations?</h3>
+            <p data-lang="zh">GCR 插件支持丰富的自定义功能，您可以通过编辑配置文件进行个性化设置。</p>
+            <p data-lang="en" style="display: none;">GCR supports extensive customization options, and you can personalize it by editing the configuration file.</p>
+        </div>
+    
+    </section>
+
+    <style>
+        #faq {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        #faq h2 {
+            /* font-size: 28px; */
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: #666;
+            margin-left: 20px;
+            line-height: 1.6;
+        }
+    </style>
+
+    <section id="contact">
+
+        <!-- 联系信息 -->
+        <div class="contact-info">
+            <h2 data-lang="zh">联系我们</h2>
+            <h2 data-lang="en" style="display: none;">Contact</h2>
+
+            <p data-lang="zh">您可以通过以下方式反馈你的意见和建议：</p>
+            <p data-lang="en" style="display: none;">You can reach us through the following methods:</p>
+
+            <ul>
+                <li data-lang="zh">电子邮件：gao.junbin.cn@gmail.com</li>
+                <li data-lang="en" style="display: none;">Email: gao.junbin.cn@gmail.com</li>
+
+                <li data-lang="zh">Github Issue：<a href="https://github.com/gaojunbin/GCR/issues">https://github.com/gaojunbin/GCR/issues</a></li>
+                <li data-lang="en" style="display: none;">Github Issue: <a href="https://github.com/gaojunbin/GCR/issues">https://github.com/gaojunbin/GCR/issues</a></li>
+
+                <li data-lang="zh">地址：MD1, 12 Science Drive 2, Singapore 117549</li>
+                <li data-lang="en" style="display: none;">Address: MD1, 12 Science Drive 2, Singapore 117549</li>
+            </ul>
+        </div>
+
+        <!-- <div class="contact-form">
+            <h3 data-lang="zh">发送消息</h3>
+            <h3 data-lang="en" style="display: none;">Send a Message</h3>
+
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="name" data-lang="zh">姓名：</label>
+                    <label for="name" data-lang="en" style="display: none;">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" data-lang="zh">电子邮件：</label>
+                    <label for="email" data-lang="en" style="display: none;">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" data-lang="zh">留言：</label>
+                    <label for="message" data-lang="en" style="display: none;">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" data-lang="zh">发送</button>
+                    <button type="submit" data-lang="en" style="display: none;">Send</button>
+                </div>
+            </form>
+        </div> -->
+    </section>
+    <style>
+        #contact {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        #contact h2 {
+            /* font-size: 28px; */
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .contact-info ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .contact-info li {
+            margin-bottom: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .contact-form {
+            margin-top: 30px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</main>
+
+<footer>
+    <p>CopyRight © 2024 Junbin GCR All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

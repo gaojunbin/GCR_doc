@@ -1,0 +1,10 @@
+version: '3'
+services:
+  web:
+    image: httpd:latest  # 使用 Apache 镜像
+    container_name: gcr_doc
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/  # 将本地html目录挂载到容器中的Apache网页根目录
+    ports:
+      - "49862:80"  # 将服务器的80端口映射到容器的80端口
+    restart: always  # 自动重启
