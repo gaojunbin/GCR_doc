@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>GCR Documentation</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -116,7 +118,7 @@
     <h1 data-lang="zh" style="font-size: 300%;">GCR</h1>
     <h1 data-lang="zh" class="animated-title" style="font-size: 200%;">让你的Shell更加强大</h1>
     <h1 data-lang="en" style="font-size: 300%; display:none;">GCR</h1>
-    <h1 data-lang="en" class="animated-title" style="font-size: 200%; display:none;">make your shell more powerful</h1>
+    <h1 data-lang="en" class="animated-title" style="font-size: 200%; display:none;">Make your shell more powerful</h1>
     <div class="lang-switch">
         <button class="apple-button" onclick="switchLanguage('zh')">&nbsp; &nbsp;中文&nbsp; &nbsp;</button>
         <button class="apple-button" onclick="switchLanguage('en')">English</button>
@@ -253,37 +255,37 @@
                     <div class="slides">
                         <div class="slide active" id="slide1">
                             <p data-lang="zh">服务器登陆新范式！集成开源工具tssh，自定义多服务器的分组和智能登陆，更方便地管理你的服务器集群，不再需要记忆复杂的服务器地址和别名！</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm for server login! Integrate the open source tool tssh, customize multi-server grouping and intelligent login, and manage your server cluster more conveniently. You no longer need to remember complex server addresses and aliases!</p>
                             <img src="data/tssh_login.gif" alt="Demo 1">
                         </div>
                         <div class="slide" id="slide2">
                             <p data-lang="zh">终端键入新范式！自动提示和补全：基于zsh强大的生态，集成了自动提示和补全的开源工具，可以记忆你过去使用的终端命令并在你需要的时候给你提示，不再只基于开头匹配，不再区分大小写！</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm in terminal typing! Automatic prompts and completion: Based on the powerful ecology of zsh, an open source tool that integrates automatic prompts and completion can remember the terminal commands you used in the past and give you prompts when you need them. It is no longer just based on the beginning of the match. case sensitive!</p>
                             <img src="data/complete.gif" alt="Demo 2">
                         </div>
                         <div class="slide" id="slide3">
                             <p data-lang="zh">软件安装新范式！集成多个常用的软件安装包，让你在不同平台安装常用的开发工具时一键完成，无需顾虑太多，不再需要一步一步输入安装命令！</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm for software installation! Integrating multiple commonly used software installation packages allows you to install commonly used development tools on different platforms with one click. You don’t have to worry too much and you no longer need to enter installation commands step by step!</p>
                             <img src="data/install.gif" alt="Demo 3">
                         </div>
                         <div class="slide" id="slide4">
                             <p data-lang="zh">文件编辑新范式！让sublime text / vs code 的强大功能在终端随时可用，code命令可以直接调用本地sublime/vscode查看和编辑本地/远程文件，并自动同步，让每个人都精通vim的方式是取代vim！</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm for document editing! Let the powerful functions of sublime text vs code be available in the terminal at any time. The code command can directly call local sublime/vscode to view and edit local/remote files, and automatically synchronize them. The way to make everyone proficient in vim is to replace vim!</p>
                             <img src="data/code.gif" alt="Demo 4">
                         </div>
                         <div class="slide" id="slide5">
                             <p data-lang="zh">文件传输新范式！所见即所得，支持本地拖拽文件（夹）到终端直接完成上传，或在终端直接下载文件（夹）到本地，不再需要第三方软件和不定期卡死的VS Code!</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm in file transfer! What you see is what you get. It supports dragging files (folders) locally to the terminal to complete the upload directly, or downloading files (folders) directly from the terminal to the local area. No need for third-party software and VS Code that freezes occasionally!</p>
                             <img src="data/file.gif" alt="Demo 5">
                         </div>
                         <div class="slide" id="slide6">
                             <p data-lang="zh">文件删除新范式！del命令取代原生rm命令，删除前再也不用烦恼文件夹前忘记-r，无论是啥，del统统删除，什么，误删了文件怎么办？del自带回收站系统让你轻松找回误删文件！</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">A new paradigm in file deletion! The del command replaces the native rm command. You no longer have to worry about forgetting - r before deleting a folder. No matter what it is, del will delete it all. What, what should I do if I accidentally delete a file? del comes with a recycle bin system that allows you to easily retrieve accidentally deleted files!</p>
                             <img src="data/del.gif" alt="Demo 6">
                         </div>
                         <div class="slide" id="slide7">
                             <p data-lang="zh">...更多内容持续更新中...</p>
-                            <p data-lang="en" style="display:none;"></p>
+                            <p data-lang="en" style="display:none;">... More content is continuously updated...</p>
                             <!-- <img src="data/demo.gif" alt="Demo 7"> -->
                         </div>
                     </div>
@@ -552,20 +554,20 @@
             </div>
             <div class="code-container" data-lang="en" style="display: none;">
                 <pre><code id="code-en-1">curl -s https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh -o ~/install_gcr.sh && bash ~/install_gcr.sh && rm ~/install_gcr.sh</code></pre>
-                <button class="copy-btn" id='copy-btn-code-en-1' onclick="copyCode('code-en-1')">Copy</button>
+                <button class="copy-btn" id='copy-btn-code-en-1' onclick="copyCode('code-en-1')">copy</button>
             </div>
 
             <p data-lang="zh">您可以按照屏幕提示根据您使用的操作系统和用户权限选择对应的安装方式。</p>
-            <p data-lang="en" style="display: none;"></p>
+            <p data-lang="en" style="display: none;">You can follow the on-screen prompts to select the corresponding installation method based on your operating system and user permissions.</p>
 
             <p data-lang="zh">目前一键安装支持的操作系统有：Ubuntu, MacOS, NUS HPC, NUS Medicine HPC, NSCC Singapore. 理论上一切支持zsh的操作系统（目前市面上大多数操作系统应该都支持）均可以支持GCR，但是部分操作系统安装zsh的方式略有不同，且某些安装方式需要root权限，不同权限的用户安装方式也会略有不同。 一键脚本在未来会尽可能支持更多操作系统，若在安装过程中遇到问题，可先自行安装zsh，并设置zsh为默认shell，然后再按照脚本内容自行安装GCR即可。</p>
-            <p data-lang="en" style="display: none;"></p>
+            <p data-lang="en" style="display: none;">The operating systems currently supported by one-click installation include: Ubuntu, Mac OS, NUS HPC, NUS Medicine HPC, NSCC Singapore. In theory, all operating systems that support zsh (most operating systems currently on the market should support it) can support GCR. However, some operating systems have slightly different ways of installing zsh, and some installation methods require root permissions. The installation methods of users with different permissions will also be slightly different. The one-click script will support as many operating systems as possible in the future. If you encounter problems during the installation process, you can first install zsh yourself, set zsh as the default shell, and then install GCR yourself according to the script content.</p>
 
             <p data-lang="zh">由于windows与类unix操作系统底层命令差异较大，短期内不考虑支持。</p>
-            <p data-lang="en" style="display: none;"></p>
+            <p data-lang="en" style="display: none;">Since the underlying commands of Windows and Unix-like operating systems are quite different, support will not be considered in the short term.</p>
 
             <p data-lang="zh">若您原先较为依赖bashrc / bash_profile的配置，请自行移植需要的配置到zshrc。 继续阅读分步安装有助于你更好的理解如何移植。</p>
-            <p data-lang="en" style="display: none;"></p>
+            <p data-lang="en" style="display: none;">If you originally relied on bashrc bash_profile configuration, please transplant the required configuration to zshrc yourself. Continue reading for a step-by-step installation to help you better understand how to migrate.</p>
         </div>
     
         <!-- 分步手动安装 -->
@@ -577,15 +579,11 @@
             <p data-lang="en" style="display: none;">If you prefer to install manually, please follow these steps:</p>
             
             <ol data-lang="zh">
-                <li>下载GCR插件代码：</li>
-                <!-- 代码段和复制按钮 -->
-                    <div class="code-container" data-lang="zh">
+                <li>下载GCR插件代码</li>
+                    <!-- 代码段和复制按钮 -->
+                    <div class="code-container">
                         <pre><code id="code-zh-2">git clone https://github.com/gaojunbin/GCR.git</code></pre>
                         <button class="copy-btn" id='copy-btn-code-zh-2' onclick="copyCode('code-zh-2')">复制</button>
-                    </div>
-                    <div class="code-container" data-lang="en" style="display: none;">
-                        <pre><code id="code-en-2">git clone https://github.com/gaojunbin/GCR.git</code></pre>
-                        <button class="copy-btn" id='copy-btn-code-en-2' onclick="copyCode('code-en-2')">Copy</button>
                     </div>
     
                 <li>自行安装zsh</li>
@@ -594,58 +592,38 @@ sudo apt-get install zsh # Ubuntu
 sudo yum install zsh # CentOS
 brew install zsh # MacOS (Homebrew)
                     </code></pre>
-                    <p data-lang="zh">MacOS市面上大多数系统已经默认预装zsh且作为预设shell (MAC YYDS)， 若需要升级zsh版本，可通过Homebrew包管理器，由于MAC经历了x86到arm架构的变化，Homebrew的安装也有细微的改变，官方目前有较为完整的解决方案，可参考<a href="https://brew.sh">Homebrew官网</a>。安装完毕后即可使用Homebrew安装/更新zsh，请注意环境路径，使得系统zsh可以找到并使用你预期路径下的zsh。</p>
-                    <p data-lang="en" style="display: none;"></p>
+                    <p>MacOS市面上大多数系统已经默认预装zsh且作为预设shell (MAC YYDS)， 若需要升级zsh版本，可通过Homebrew包管理器，由于MAC经历了x86到arm架构的变化，Homebrew的安装也有细微的改变，官方目前有较为完整的解决方案，可参考<a href="https://brew.sh">Homebrew官网</a>。安装完毕后即可使用Homebrew安装/更新zsh，请注意环境路径，使得系统zsh可以找到并使用你预期路径下的zsh。</p>
 
-                    <p data-lang="zh">对于其他操作系统，如果是服务器端无法使用一键脚本成功安装，请先确认服务器是否预安装了较新版zsh（部分较老版本的ubuntu等系统预装zsh太旧无法支持完整功能），若需要重新安装zsh，可按照对应系统自行安装。请注意，默认情况下安装zsh需要root权限，如果你所使用的账号没有root权限，你可以从<a href="https://www.zsh.org">zsh官方</a>下载源代码并自行编译安装（一键脚本中HPC， NSCC等就是采用了这样的解决方案），但是自行编译安装会因为操作系统等因素遇到各种不一样的问题，请关注官方仓库寻求解决方案。<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">oh-my-zsh</a>提供了一些安装指导，供参考。</p>
-                    <p data-lang="en" style="display: none;"></p>
+                    <p>对于其他操作系统，如果是服务器端无法使用一键脚本成功安装，请先确认服务器是否预安装了较新版zsh（部分较老版本的ubuntu等系统预装zsh太旧无法支持完整功能），若需要重新安装zsh，可按照对应系统自行安装。请注意，默认情况下安装zsh需要root权限，如果你所使用的账号没有root权限，你可以从<a href="https://www.zsh.org">zsh官方</a>下载源代码并自行编译安装（一键脚本中HPC， NSCC等就是采用了这样的解决方案），但是自行编译安装会因为操作系统等因素遇到各种不一样的问题，请关注官方仓库寻求解决方案。<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">oh-my-zsh</a>提供了一些安装指导，供参考。</p>
                 
                 <li>安装GCR</li>
-                <p data-lang="zh">GCR基于开源工具oh-my-zsh,但是修改了部分内容，如果您之前已经在使用oh-my-zsh，请先卸载oh-my-zsh并清理原始文件，防止与GCR冲突。</p>
-                <p data-lang="en" style="display: none;"></p>
+                <p>GCR基于开源工具oh-my-zsh,但是修改了部分内容，如果您之前已经在使用oh-my-zsh，请先卸载oh-my-zsh并清理原始文件，防止与GCR冲突。</p>
 
-                <p data-lang="zh">1) 检查GCR下载的目录以及$HOME下是否有足够的磁盘空间 （GCR不需要很大的空间，但请留出>5GB存储防止意外）</p>
-                <p data-lang="en" style="display: none;"></p>
+                <p>1) 检查GCR下载的目录以及$HOME下是否有足够的磁盘空间 （GCR不需要很大的空间，但请留出>5GB存储防止意外）</p>
 
-                <p data-lang="zh">2) 检查zsh是否正常安装以及版本是否较新 (> 5.0)</p>
-                <p data-lang="en" style="display: none;"></p>
-                <div class="code-container" data-lang="zh">
-                    <pre><code id="code-zh-3">zsh --version</code></pre>
+                <p>2) 检查zsh是否正常安装以及版本是否较新 (> 5.0)</p>
+                <div class="code-container">
+                    <pre><code id="code-3">zsh --version</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-3' onclick="copyCode('code-zh-3')">复制</button>
                 </div>
-                <div class="code-container" data-lang="en" style="display: none;">
-                    <pre><code id="code-en-3">zsh --version</code></pre>
-                    <button class="copy-btn" id='copy-btn-code-en-3' onclick="copyCode('code-en-3')">Copy</button>
-                </div>
 
-                <p data-lang="zh">3) 设置zsh默认shell (有root权限)</p>
-                <p data-lang="en" style="display: none;"></p>
-                <div class="code-container" data-lang="zh">
-                    <pre><code id="code-zh-4">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                <p>3) 设置zsh默认shell (有root权限)</p>
+                <div class="code-container">
+                    <pre><code id="code-zh-4">sudo chsh -s $(which zsh) $(whoami) # 如果你有root权限</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-4' onclick="copyCode('code-zh-4')">复制</button>
                 </div>
-                <div class="code-container" data-lang="en" style="display: none;">
-                    <pre><code id="code-en-4">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
-                    <button class="copy-btn" id='copy-btn-code-en-4' onclick="copyCode('code-en-4')">Copy</button>
-                </div>
+               
 
-                <p data-lang="zh">3') 设置zsh默认shell (没有root权限)</p>
-                <p data-lang="en" style="display: none;"></p>
-                <div class="code-container" data-lang="zh">
+                <p>3') 设置zsh默认shell (没有root权限)</p>
+                <div class="code-container">
                     <pre><code id="code-zh-5"># 添加下面的代码到你的默认shell配置下，以bash为例，你可以添加到～/.bashrc或者~/.bash_profile下, $path/to/zsh是你zsh安装的路径
 
 [ -f $path/to/zsh ] && exec $path/to/zsh -l</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-5' onclick="copyCode('code-zh-5')">复制</button>
                 </div>
-                <div class="code-container" data-lang="en" style="display: none;">
-                    <pre><code id="code-zh-5">
-                    </code></pre>
-                    <button class="copy-btn" id='copy-btn-code-en-5' onclick="copyCode('code-en-5')">Copy</button>
-                </div>
-
-                <p data-lang="zh">4) 进入GCR文件夹并拷贝GCR依赖文件</p>
-                <p data-lang="en" style="display: none;"></p>
-                <div class="code-container" data-lang="zh">
+                
+                <p>4) 进入GCR文件夹并拷贝GCR依赖文件</p>
+                <div class="code-container">
                     <pre><code id="code-zh-6">cp .ohmyshell ~/
 cp .ohmytool ~/
 cp .ohmyzsh ~/
@@ -654,14 +632,10 @@ cp .ohmyprint ~/
 cp -r oh-my-zsh ~/.oh-my-zsh</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-6' onclick="copyCode('code-zh-6')">复制</button>
                 </div>
-                <div class="code-container" data-lang="en" style="display: none;">
-                    <pre><code id="code-en-6">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
-                    <button class="copy-btn" id='copy-btn-code-en-6' onclick="copyCode('code-en-6')">Copy</button>
-                </div>
+                
 
-                <p data-lang="zh">5) 生成GCR配置文件 .zshrc 到$HOME目录下</p>
-                <p data-lang="en" style="display: none;"></p>
-                <div class="code-container" data-lang="zh">
+                <p>5) 生成GCR配置文件 .zshrc 到$HOME目录下</p>
+                <div class="code-container">
                     <pre><code id="code-zh-7">SHOW_GCR_INFO=false
 CHECK_GCR_UPDATE=true
 source ~/.ohmyzsh
@@ -669,23 +643,86 @@ source ~/.p9k.zsh
 source ~/.ohmyshell</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-7' onclick="copyCode('code-zh-7')">复制</button>
                 </div>
-                <div class="code-container" data-lang="en" style="display: none;">
-                    <pre><code id="code-en-7">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
-                    <button class="copy-btn" id='copy-btn-code-en-7' onclick="copyCode('code-en-7')">Copy</button>
-                </div>
-
-                <p data-lang="zh">6) 迁移原shell中有用的部分</p>
-                <p data-lang="en" style="display: none;"></p>
-                <p data-lang="zh">迁移原shell中有用的部分到新的文件，并在.zshrc中source该文件，也可以直接迁移到.zshrc中，但是建议不要直接写在主文件中</p>
-                <p data-lang="en" style="display: none;"></p>
                 
-                <p data-lang="zh">7) 至此，你的GCR安装完毕！</p>
-                <p data-lang="en" style="display: none;"></p>
+
+                <p>6) 迁移原shell中有用的部分</p>
+                <p>迁移原shell中有用的部分到新的文件，并在.zshrc中source该文件，也可以直接迁移到.zshrc中，但是建议不要直接写在主文件中</p>
+                
+                <p>7) 至此，你的GCR安装完毕！</p>
                 
             </ol>
     
             <ol data-lang="en" style="display: none;">
+                <li>Download the GCR code</li>
+                    <!-- 代码段和复制按钮 -->
+                    <div class="code-container">
+                        <pre><code id="code-en-2">git clone https://github.com/gaojunbin/GCR.git</code></pre>
+                        <button class="copy-btn" id='copy-btn-code-en-2' onclick="copyCode('code-en-2')">copy</button>
+                    </div>
+    
+                <li>Install zsh yourself</li>
+                    <pre><code>
+sudo apt-get install zsh # Ubuntu
+sudo yum install zsh # CentOS
+brew install zsh # MacOS (Homebrew)
+                    </code></pre>
+                    <p>Most systems on the MacOS market have zsh pre-installed as a default shell (MAC YYDS), if you need to upgrade the zsh version, you can use the Homebrew package manager, due to the MAC has gone through a change from x86 to arm architecture, the Homebrew installation has also changed slightly, the official has a more complete solution, can refer to the<a href="https://brew.sh">Homebrew</a>.After the installation is complete, you can use homebrew to install/update zsh. Please pay attention to the environment path so that the system zsh can find and use zsh in your expected path.</p>
+
+                    <p>For other operating systems, if the server cannot be successfully installed using a one-click script, please first confirm whether the server has a newer version of zsh pre-installed (some older versions of ubuntu and other systems have pre-installed zsh that is too old to support full functionality). If necessary Reinstall zsh, you can install it yourself according to the corresponding system. Please note that installing zsh requires root permissions by default. If the account you are using does not have root permissions, you can download the source codes from <a href="https://www.zsh.org">zsh</a> and compile and install it by yourself (HPC, NSCC, etc. in one-click scripts use this solution). However, compiling and installing by yourself will encounter various problems due to operating system and other factors. Please pay attention to the official warehouse for solutions.<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH">oh-my-zsh</a> provide some installation instructions for reference.</p>
                 
+                <li>Install GCR</li>
+                <p>GCR is based on the open source tool oh-my-zsh, but some contents have been modified. If you have been using oh-my-zsh before, please uninstall oh-my-zsh first and clean the original files to prevent conflicts with GCR.</p>
+
+                <p>1) Check whether there is enough disk space in the directory where GCR is downloaded and $HOME (GCR does not require a large space, but please set aside >5 GB storage to prevent accidents)</p>
+
+                <p>2) Check whether zsh is installed normally and whether the version is newer (> 5.0)</p>
+                <div class="code-container">
+                    <pre><code id="code-en-3">zsh --version</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-3' onclick="copyCode('code-en-3')">copy</button>
+                </div>
+
+                <p>3) Set zsh default shell (with root permissions)</p>
+                <div class="code-container">
+                    <pre><code id="code-en-4">sudo chsh -s $(which zsh) $(whoami) # If you have the root permission</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-4' onclick="copyCode('code-en-4')">copy</button>
+                </div>
+               
+
+                <p>3') Set zsh default shell (without root permissions)</p>
+                <div class="code-container">
+                    <pre><code id="code-en-5"># Add the following code to your default shell configuration. Taking bash as an example, you can add it to ~/.bashrc or ~/.bash_profile. $path/to/zsh is the path to your zsh installation.
+
+[ -f $path/to/zsh ] && exec $path/to/zsh -l</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-5' onclick="copyCode('code-en-5')">copy</button>
+                </div>
+                
+                <p>4) Enter the gcr folder and copy the gcr dependency files</p>
+                <div class="code-container">
+                    <pre><code id="code-en-6">cp .ohmyshell ~/
+cp .ohmytool ~/
+cp .ohmyzsh ~/
+cp .p9k.zsh ~/
+cp .ohmyprint ~/
+cp -r oh-my-zsh ~/.oh-my-zsh</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-6' onclick="copyCode('code-en-6')">copy</button>
+                </div>
+                
+
+                <p>5) Generate the GCR configuration file .zshrc to the $HOME directory</p>
+                <div class="code-container">
+                    <pre><code id="code-en-7">SHOW_GCR_INFO=false
+CHECK_GCR_UPDATE=true
+source ~/.ohmyzsh
+source ~/.p9k.zsh
+source ~/.ohmyshell</code></pre>
+                    <button class="copy-btn" id='copy-btn-code-en-7' onclick="copyCode('code-en-7')">copy</button>
+                </div>
+                
+
+                <p>6) Migrate useful parts of the original shell</p>
+                <p>Migrate useful parts of the original shell to a new file and source the file in .zshrc. You can also migrate it directly to .zshrc, but it is recommended not to write it directly in the main file.</p>
+                
+                <p>7) At this point, your gcr is installed!</p>
             </ol>
         </div>
     </section>
@@ -778,8 +815,8 @@ source ~/.ohmyshell</code></pre>
             if (copyButton.innerText === '复制') {
                 copyButton.innerText = '已复制';
             }
-            if (copyButton.innerText === 'Copy') {
-                copyButton.innerText = 'Copied';
+            if (copyButton.innerText === 'copy') {
+                copyButton.innerText = 'copied';
             }
             
             // 2秒后恢复按钮文本
@@ -787,8 +824,8 @@ source ~/.ohmyshell</code></pre>
                 if (copyButton.innerText === '已复制') {
                     copyButton.innerText = '复制';
                 }
-                if (copyButton.innerText === 'Copied') {
-                    copyButton.innerText = 'Copy';
+                if (copyButton.innerText === 'copied') {
+                    copyButton.innerText = 'copy';
                 }
             }, 2000);
         }
@@ -797,10 +834,149 @@ source ~/.ohmyshell</code></pre>
 
 
     <section id="usage">
-        <h2 data-lang="zh">使用说明</h2>
-        <h2 data-lang="en" style="display: none;">Usage</h2>
-        <p data-lang="zh">即将上线...</p>
-        <p data-lang="en" style="display:none;">Coming soon...</p>
+         <h2 data-lang="zh" style="text-align: center;">
+            使用说明
+            <a href="data/manual.pdf" download style="text-decoration: none;">
+                <i class="fas fa-file-download" style="margin-left: 8px;"></i>
+                下载PDF手册
+            </a>
+        </h2>
+
+        <h2 data-lang="en" style="display: none; text-align: center;">
+            Usage
+            <a href="data/manual-en.pdf" download style="text-decoration: none;">
+                <i class="fas fa-file-download" style="margin-left: 8px;"></i>
+                Download PDF Manual
+            </a>
+        </h2>
+        <!-- <p data-lang="zh">即将上线...</p>
+        <p data-lang="en" style="display:none;">Coming soon...</p> -->
+        <!-- <embed src="data/doc.pdf" type="application/pdf" width="80%" height="800px" /> -->
+
+
+        <div data-lang="zh" id="markdown-content">加载中...</div>
+        <div data-lang="en" style="display: none;" id="markdown-content-en">Loading...</div>
+
+        <script>
+            // Markdown 文件的路径
+            let markdownFile = 'data/manual.md';  // 替换为你的Markdown文件路径
+            let markdownFileen = 'data/manual-en.md';  // 替换为你的Markdown文件路径
+            
+
+            // 使用 Fetch API 加载 Markdown 文件
+            fetch(markdownFile)
+                .then(response => response.text())  // 读取文件内容为文本
+                .then(markdown => {
+                    // 检测 [TOC] 并在解析前替换为占位符 <div id="toc"></div>
+                    const tocPlaceholder = '<div id="toc"></div>';
+                    const markdownWithToc = markdown.replace(/\[TOC\]/i, tocPlaceholder);
+
+                    // 使用 marked.js 将 Markdown 转换为 HTML
+                    const htmlContent = marked.parse(markdownWithToc);
+                    
+                    // 将 HTML 插入到指定的 div 中
+                    document.getElementById('markdown-content').innerHTML = htmlContent;
+                    
+                    // 调用生成目录的函数
+                    generateTOC();
+                })
+                .catch(error => {
+                    console.error('加载 Markdown 文件出错:', error);
+                    document.getElementById('markdown-content').innerHTML = '无法加载 Markdown 文件。';
+                });
+
+
+            // 生成 TOC 的函数
+            function generateTOC() {
+                const toc = document.querySelector('#toc');
+                if (!toc) return; // 如果没有 TOC 占位符，直接返回
+                
+                const tocList = document.createElement('ul');
+                const headings = document.querySelectorAll('#markdown-content h1, #markdown-content h2, #markdown-content h3, #markdown-content h4');
+                
+                headings.forEach(heading => {
+                    const id = heading.getAttribute('id');
+                    if (!id) {
+                        const text = heading.textContent.toLowerCase().replace(/\s+/g, '-');
+                        heading.setAttribute('id', text); // 如果没有 id，则自动生成
+                    }
+
+                    const text = heading.textContent;
+                    const tagName = heading.tagName.toLowerCase();
+                    
+                    // 创建目录项
+                    const li = document.createElement('li');
+                    li.style.marginLeft = (parseInt(tagName.replace('h', '')) - 1) * 20 + 'px'; // 根据标题级别调整缩进
+                    
+                    const a = document.createElement('a');
+                    a.href = `#${heading.getAttribute('id')}`;
+                    a.textContent = text;
+                    
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                });
+
+                toc.appendChild(tocList); // 将目录插入到 TOC 占位符中
+            }
+
+            // 使用 Fetch API 加载 Markdown 文件
+            fetch(markdownFileen)
+                .then(response => response.text())  // 读取文件内容为文本
+                .then(markdown => {
+                    // 检测 [TOC] 并在解析前替换为占位符 <div id="toc"></div>
+                    const tocPlaceholder = '<div id="toc"></div>';
+                    const markdownWithToc = markdown.replace(/\[TOC\]/i, tocPlaceholder);
+
+                    // 使用 marked.js 将 Markdown 转换为 HTML
+                    const htmlContent = marked.parse(markdownWithToc);
+                    
+                    // 将 HTML 插入到指定的 div 中
+                    document.getElementById('markdown-content-en').innerHTML = htmlContent;
+                    
+                    // 调用生成目录的函数
+                    generateTOCen();
+                })
+                .catch(error => {
+                    console.error('加载 Markdown 文件出错:', error);
+                    document.getElementById('markdown-content-en').innerHTML = '无法加载 Markdown 文件。';
+                });
+
+
+            // 生成 TOC 的函数
+            function generateTOCen() {
+                const toc = document.querySelector('#toc');
+                if (!toc) return; // 如果没有 TOC 占位符，直接返回
+                
+                const tocList = document.createElement('ul');
+                const headings = document.querySelectorAll('#markdown-content-en h1, #markdown-content-en h2, #markdown-content-en h3, #markdown-content-en h4');
+                
+                headings.forEach(heading => {
+                    const id = heading.getAttribute('id');
+                    if (!id) {
+                        const text = heading.textContent.toLowerCase().replace(/\s+/g, '-');
+                        heading.setAttribute('id', text); // 如果没有 id，则自动生成
+                    }
+
+                    const text = heading.textContent;
+                    const tagName = heading.tagName.toLowerCase();
+                    
+                    // 创建目录项
+                    const li = document.createElement('li');
+                    li.style.marginLeft = (parseInt(tagName.replace('h', '')) - 1) * 20 + 'px'; // 根据标题级别调整缩进
+                    
+                    const a = document.createElement('a');
+                    a.href = `#${heading.getAttribute('id')}`;
+                    a.textContent = text;
+                    
+                    li.appendChild(a);
+                    tocList.appendChild(li);
+                });
+
+                toc.appendChild(tocList); // 将目录插入到 TOC 占位符中
+            }
+
+        </script>
+
     </section>
 
     <style>
@@ -808,13 +984,55 @@ source ~/.ohmyshell</code></pre>
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 8px;
-            margin-top: 30px;
-            text-align: center;
+/*            text-align: center;*/
+            width: 80%;
+            margin: 5% auto;
+
+
         }
 
         #usage h2, #usage h3 {
             color: #333;
-            text-align: center;
+/*            text-align: center;*/
+        }
+
+        #markdown-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        #markdown-content table, th, td {
+            border: 1px solid #ddd;
+        }
+        #markdown-content th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        #markdown-content th {
+            background-color: #f2f2f2;
+        }
+        #toc {
+            margin-bottom: 20px;
+        }
+        #toc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        #toc a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        #toc a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, h4 {
+            scroll-margin-top: 100px; /* 确保点击锚点时不会被遮挡 */
         }
 
     </style>
