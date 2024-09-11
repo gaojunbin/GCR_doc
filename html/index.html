@@ -868,7 +868,7 @@ source ~/.ohmyshell</code></pre>
                 .then(response => response.text())  // 读取文件内容为文本
                 .then(markdown => {
                     // 检测 [TOC] 并在解析前替换为占位符 <div id="toc"></div>
-                    const tocPlaceholder = '<div id="toc"></div>';
+                    const tocPlaceholder = '<div data-lang="zh" id="toc"></div>';
                     const markdownWithToc = markdown.replace(/\[TOC\]/i, tocPlaceholder);
 
                     // 使用 marked.js 将 Markdown 转换为 HTML
@@ -924,7 +924,7 @@ source ~/.ohmyshell</code></pre>
                 .then(response => response.text())  // 读取文件内容为文本
                 .then(markdown => {
                     // 检测 [TOC] 并在解析前替换为占位符 <div id="toc"></div>
-                    const tocPlaceholder = '<div id="toc"></div>';
+                    const tocPlaceholder = '<div data-lang="en" style="display: none;" id="tocen"></div>';
                     const markdownWithToc = markdown.replace(/\[TOC\]/i, tocPlaceholder);
 
                     // 使用 marked.js 将 Markdown 转换为 HTML
@@ -944,7 +944,7 @@ source ~/.ohmyshell</code></pre>
 
             // 生成 TOC 的函数
             function generateTOCen() {
-                const toc = document.querySelector('#toc');
+                const toc = document.querySelector('#tocen');
                 if (!toc) return; // 如果没有 TOC 占位符，直接返回
                 
                 const tocList = document.createElement('ul');
