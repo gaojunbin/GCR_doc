@@ -465,15 +465,29 @@
         function showSlides(n) {
             const slides = document.querySelectorAll(".slide");
             const dots = document.querySelectorAll(".dot");
+            
             if (n > slides.length) {
                 slideIndex = 1;
             }
             if (n < 1) {
                 slideIndex = slides.length;
             }
+
             slides.forEach((slide, index) => {
-                slide.style.display = (index + 1 === slideIndex) ? "block" : "none";
+                if (index + 1 === slideIndex) {
+                    slide.style.opacity = '0'; // 先将当前 slide 设为透明
+                    slide.style.display = 'block'; // 确保它在布局中显示
+                    setTimeout(() => {
+                        slide.style.opacity = '1'; // 过渡效果将 opacity 从 0 变为 1
+                    }, 400); // 确保 display:block 后稍微延迟执行淡入动画
+                } else {
+                    slide.style.opacity = '0'; // 将其他 slide 设为透明
+                    setTimeout(() => {
+                        slide.style.display = 'none'; // 等淡出动画结束后隐藏
+                    }, 300); // 等待淡出动画完成（500ms 对应 CSS 中的 transition 时间）
+                }
             });
+
             dots.forEach((dot, index) => {
                 dot.classList.remove("active");
                 if (index + 1 === slideIndex) {
@@ -716,7 +730,7 @@ source ~/.ohmyshell</code></pre>
         }
 
         pre {
-            background-color: #f4f4f4;
+            background-color: white;
             padding: 10px;
             border-radius: 5px;
             overflow-x: auto;
@@ -845,6 +859,8 @@ source ~/.ohmyshell</code></pre>
             background-color: #f9f9f9;
             border-radius: 8px;
             margin-top: 30px;
+            max-width: 80%;
+            margin: 0 auto;
         }
 
         #faq h2 {
@@ -931,6 +947,8 @@ source ~/.ohmyshell</code></pre>
             background-color: #f9f9f9;
             border-radius: 8px;
             margin-top: 30px;
+            max-width: 80%;
+            margin: 0 auto;
         }
 
         #contact h2 {
