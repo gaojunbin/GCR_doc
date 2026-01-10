@@ -9,41 +9,63 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+            color: #1d1d1f;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
         }
         header {
-            background-color: #282c34;
-            color: white;
-            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            color: #1d1d1f;
+            padding: 40px 20px;
             text-align: center;
+            box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
         }
         nav {
             margin: 0;
-            padding: 15px;
-            background-color: #333;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             text-align: center;
             display: flex;
             justify-content: center;
-            gap: 5%;
+            gap: 40px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         nav a {
-            color: white;
+            color: #1d1d1f;
             text-decoration: none;
             cursor: pointer;
+            font-weight: 500;
+            font-size: 17px;
+            padding: 12px 20px;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
         }
         nav a:hover {
-            text-decoration: underline;
+            background: rgba(0, 113, 227, 0.1);
+            color: #0071e3;
+            transform: translateY(-1px);
+        }
+        nav a:active {
+            transform: translateY(0);
         }
         main {
-            /* padding: 20px; */
             max-width: 100%;
             margin: auto;
-            background-color: #f4f4f4;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+            background: transparent;
+            padding-top: 20px;
         }
         section {
             display: none; /* 默认隐藏所有内容 */
@@ -52,13 +74,15 @@
             display: block; /* 显示被激活的部分 */
         }
         footer {
-            background-color: #282c34;
-            color: #f4f4f4;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: #86868b;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            padding: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            margin-top: 80px;
+            font-size: 14px;
         }
         .lang-switch {
             position: absolute;
@@ -115,10 +139,10 @@
 <body>
 
 <header>
-    <h1 data-lang="zh" style="font-size: 300%;">GCR</h1>
-    <h1 data-lang="zh" class="animated-title" style="font-size: 200%;">让你的Shell更加强大</h1>
-    <h1 data-lang="en" style="font-size: 300%; display:none;">GCR</h1>
-    <h1 data-lang="en" class="animated-title" style="font-size: 200%; display:none;">Make your shell more powerful</h1>
+    <h1 data-lang="zh" style="font-size: 72px; font-weight: 800; margin: 0 0 16px; letter-spacing: -0.02em;">GCR</h1>
+    <h1 data-lang="zh" class="animated-title" style="font-size: 32px; font-weight: 500; color: #86868b; margin: 0;">让你的Shell更加强大</h1>
+    <h1 data-lang="en" style="font-size: 72px; font-weight: 800; margin: 0 0 16px; letter-spacing: -0.02em; display:none;">GCR</h1>
+    <h1 data-lang="en" class="animated-title" style="font-size: 32px; font-weight: 500; color: #86868b; margin: 0; display:none;">Make your shell more powerful</h1>
     <div class="lang-switch">
         <button class="apple-button" onclick="switchLanguage('zh')">&nbsp; &nbsp;中文&nbsp; &nbsp;</button>
         <button class="apple-button" onclick="switchLanguage('en')">English</button>
@@ -172,37 +196,34 @@
         }
 
         .apple-button {
-            padding: 10px 20px;
-            border: solid;
-            border-color: rgb(199, 196, 196);
-            border-width: 1px;
-            border-radius: 30px;
-            /* background: linear-gradient(135deg, #f5f5f7, #e3e3e6); */
-            background: #282c34;
-            /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
-            font-size: 20%;
-            color: #ffffff;
+            padding: 12px 24px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            font-weight: 500;
+            color: #1d1d1f;
             cursor: pointer;
-            /* transition: background 0.3s ease, box-shadow 0.3s ease; */
-            height: 20%; /* 固定高度 */
-            line-height: 100%; /* 使文字垂直居中 */
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: inline-block;
-            color: #ffffff;
-            font-family: "SF Pro SC", "SF Pro Display", "SF Pro Icons", "PingFang SC", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+            letter-spacing: -0.01em;
         }
 
         .apple-button:hover {
-            /* background: linear-gradient(135deg, #e3e3e6, #d1d1d4); */
-            background: #cccfcc;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-            color: black;
+            background: rgba(0, 113, 227, 0.1);
+            border-color: rgba(0, 113, 227, 0.3);
+            color: #0071e3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.2);
         }
 
         .apple-button:active {
-            /* background: linear-gradient(135deg, #d1d1d4, #bdbdc0); */
-            background: #282c34;
-            border-color: white;
-            box-shadow: 0 3px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 113, 227, 0.3);
         }
     </style>
 
@@ -304,45 +325,43 @@
     <!-- CSS 样式 -->
     <style>
         .home-section {
-            /* background: linear-gradient(135deg, #635f5f, #8c8282); */
-            background: #f4f4f4;
-            padding-bottom: 100px;
-            /* padding: 100px 20px; */
-            color: white;
+            background: transparent;
+            padding: 60px 20px 120px;
+            color: #1d1d1f;
             text-align: center;
             position: relative;
         }
     
         .home-section .content-wrapper {
-            max-width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 40px;
         }
     
         .home-section h2 {
-            font-size: 48px;
-            font-weight: bold;
-            color: #333;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
+            font-size: 56px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
         }
     
         .home-section p {
-            font-size: 20px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #333;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-            /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; */
+            font-size: 22px;
+            line-height: 1.5;
+            margin-bottom: 40px;
+            color: #86868b;
+            font-weight: 400;
         }
 
         .slides p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #333;
-            width: 80%;
-            margin: auto auto;
-            margin-bottom: 5%;
-            /* text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); */
+            font-size: 17px;
+            line-height: 1.5;
+            color: #86868b;
+            width: 85%;
+            margin: 0 auto 32px;
+            font-weight: 400;
         }
     
         .features {
@@ -351,9 +370,15 @@
     
         .video-demo {
             position: relative;
-            max-width: min(80%, 1500px);
-            margin: 0 auto;
+            max-width: min(85%, 1200px);
+            margin: 40px auto;
             overflow: hidden;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
     
         .slider {
@@ -374,8 +399,12 @@
         .slide img {
             width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .slide img:hover {
+            transform: scale(1.02);
         }
     
         .dots {
@@ -385,17 +414,18 @@
     
         .dots .dot {
             cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 5px;
-            background-color: #bbb;
+            height: 8px;
+            width: 8px;
+            margin: 0 6px;
+            background-color: rgba(0, 0, 0, 0.2);
             border-radius: 50%;
             display: inline-block;
-            transition: background-color 0.6s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
     
         .dots .dot:hover, .dots .dot.active {
-            background-color: #5477f5;
+            background-color: #0071e3;
+            transform: scale(1.2);
         }
     
         .buttons {
@@ -405,21 +435,27 @@
         }
     
         .buttons button {
-            background-color: #ffffff;
-            color: #5477f5;
+            background: #0071e3;
+            color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
             cursor: pointer;
-            border-radius: 5px;
-            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+            letter-spacing: -0.01em;
         }
     
         .buttons button:hover {
-            background-color: #e0e0ff;
-            transform: scale(1.05);
+            background: #005bb5;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(0, 113, 227, 0.4);
+        }
+        .buttons button:active {
+            transform: translateY(0);
         }
 
         /* 基础样式 */
@@ -729,9 +765,16 @@ source ~/.ohmyshell</code></pre>
 
     <style>
         .installation-section {
-            padding-bottom: 100px;
-            max-width: 80%;
+            padding: 60px 20px 120px;
+            max-width: 1000px;
             margin: 0 auto;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .installation-method {
@@ -739,12 +782,19 @@ source ~/.ohmyshell</code></pre>
         }
         .installation-section h2 {
             text-align: center;
+            font-size: 48px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
         }
 
         h3 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 28px;
+            color: #1d1d1f;
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         pre {
@@ -763,34 +813,44 @@ source ~/.ohmyshell</code></pre>
 
         .code-container {
             position: relative;
-            margin: auto;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
         }
 
         pre {
-            background-color: white;
-            padding: 10px;
-            border-radius: 5px;
+            background-color: rgba(248, 248, 248, 0.8);
+            padding: 20px;
+            border-radius: 0;
             overflow-x: auto;
-            margin: auto 0;
+            margin: 0;
+            font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+            font-size: 15px;
+            line-height: 1.4;
         }
 
         .copy-btn {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 10px;
-            background-color: #4CAF50;
+            top: 16px;
+            right: 16px;
+            background: #0071e3;
             color: white;
             border: none;
-            padding: 5px 10px;
+            padding: 8px 16px;
             cursor: pointer;
-            border-radius: 3px;
+            border-radius: 12px;
             font-size: 14px;
-            transition: background-color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
         }
 
         .copy-btn:hover {
-            background-color: #45a049;
+            background: #005bb5;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 10px rgba(0, 113, 227, 0.3);
         }       
     </style>
 
@@ -834,27 +894,141 @@ source ~/.ohmyshell</code></pre>
 
 
     <section id="usage">
-         <h2 data-lang="zh" style="text-align: center;">
-            使用说明
-            <a href="data/manual.pdf" download style="text-decoration: none;">
-                <i class="fas fa-file-download" style="margin-left: 8px;"></i>
-                下载PDF手册
+        <!-- 页面头部 -->
+        <div class="usage-header">
+            <h2 data-lang="zh">使用说明</h2>
+            <h2 data-lang="en" style="display: none;">Usage Guide</h2>
+            <p class="usage-subtitle" data-lang="zh">强大功能，极致体验</p>
+            <p class="usage-subtitle" data-lang="en" style="display: none;">Powerful Features, Ultimate Experience</p>
+            <a href="data/manual.pdf" download class="download-btn" data-lang="zh">
+                <i class="fas fa-download"></i>
+                下载完整手册
             </a>
-        </h2>
-
-        <h2 data-lang="en" style="display: none; text-align: center;">
-            Usage
-            <a href="data/manual-en.pdf" download style="text-decoration: none;">
-                <i class="fas fa-file-download" style="margin-left: 8px;"></i>
-                Download PDF Manual
+            <a href="data/manual-en.pdf" download class="download-btn" data-lang="en" style="display: none;">
+                <i class="fas fa-download"></i>
+                Download Manual
             </a>
-        </h2>
-        <!-- <p data-lang="zh">即将上线...</p>
-        <p data-lang="en" style="display:none;">Coming soon...</p> -->
-        <!-- <embed src="data/doc.pdf" type="application/pdf" width="80%" height="800px" /> -->
+        </div>
 
+        <!-- 功能推荐卡片区域 -->
+        <div class="features-grid">
+            <div class="feature-category">
+                <h3 data-lang="zh">🌟 推荐必装</h3>
+                <h3 data-lang="en" style="display: none;">🌟 Recommended</h3>
+                
+                <div class="feature-cards">
+                    <div class="feature-card highlight">
+                        <div class="card-icon">🔥</div>
+                        <h4 data-lang="zh">Tssh & trzsz</h4>
+                        <h4 data-lang="en" style="display: none;">Tssh & trzsz</h4>
+                        <p data-lang="zh">SSH 登录和终端文件传输</p>
+                        <p data-lang="en" style="display: none;">SSH Login and terminal file transfer</p>
+                        <div class="card-tech">
+                            <span class="tech-tag">SSH</span>
+                            <span class="tech-tag">文件传输</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card highlight">
+                        <div class="card-icon">⚡</div>
+                        <h4 data-lang="zh">Autojump</h4>
+                        <h4 data-lang="en" style="display: none;">Autojump</h4>
+                        <p data-lang="zh">快速目录跳转</p>
+                        <p data-lang="en" style="display: none;">Quick directory jump</p>
+                        <div class="card-tech">
+                            <span class="tech-tag">导航</span>
+                            <span class="tech-tag">效率</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card highlight">
+                        <div class="card-icon">🛡️</div>
+                        <h4 data-lang="zh">Saferm</h4>
+                        <h4 data-lang="en" style="display: none;">Saferm</h4>
+                        <p data-lang="zh">安全删除文件/文件夹</p>
+                        <p data-lang="en" style="display: none;">Safe delete file/folder</p>
+                        <div class="card-tech">
+                            <span class="tech-tag">安全</span>
+                            <span class="tech-tag">回收站</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card highlight">
+                        <div class="card-icon">💻</div>
+                        <h4 data-lang="zh">Code</h4>
+                        <h4 data-lang="en" style="display: none;">Code</h4>
+                        <p data-lang="zh">终端编辑器</p>
+                        <p data-lang="en" style="display: none;">Terminal editor</p>
+                        <div class="card-tech">
+                            <span class="tech-tag">编辑</span>
+                            <span class="tech-tag">IDE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 用户指南导航 -->
+            <div class="guide-navigation">
+                <h3 data-lang="zh">📋 用户指南</h3>
+                <h3 data-lang="en" style="display: none;">📋 User Guide</h3>
+                
+                <div class="nav-cards">
+                    <div class="nav-card">
+                        <div class="nav-number">01</div>
+                        <div class="nav-content">
+                            <h5 data-lang="zh">首次使用</h5>
+                            <h5 data-lang="en" style="display: none;">First time use</h5>
+                            <p data-lang="zh">快速上手指南</p>
+                            <p data-lang="en" style="display: none;">Quick start guide</p>
+                        </div>
+                        <div class="nav-arrow">→</div>
+                    </div>
+                    
+                    <div class="nav-card">
+                        <div class="nav-number">02</div>
+                        <div class="nav-content">
+                            <h5 data-lang="zh">GCR 逻辑</h5>
+                            <h5 data-lang="en" style="display: none;">The Logic of GCR</h5>
+                            <p data-lang="zh">理解核心概念</p>
+                            <p data-lang="en" style="display: none;">Understand core concepts</p>
+                        </div>
+                        <div class="nav-arrow">→</div>
+                    </div>
+                    
+                    <div class="nav-card">
+                        <div class="nav-number">03</div>
+                        <div class="nav-content">
+                            <h5 data-lang="zh">功能概览</h5>
+                            <h5 data-lang="en" style="display: none;">Overview of functions</h5>
+                            <p data-lang="zh">全面功能介绍</p>
+                            <p data-lang="en" style="display: none;">Complete feature introduction</p>
+                        </div>
+                        <div class="nav-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 附录入口 -->
+            <div class="appendix-section">
+                <div class="appendix-card">
+                    <div class="appendix-icon">📚</div>
+                    <div class="appendix-content">
+                        <h4 data-lang="zh">附录（全部功能）</h4>
+                        <h4 data-lang="en" style="display: none;">Appendix (All Functions)</h4>
+                        <p data-lang="zh">详细功能参考手册</p>
+                        <p data-lang="en" style="display: none;">Detailed function reference manual</p>
+                    </div>
+                    <button class="explore-btn" data-lang="zh">
+                        探索详情 <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="explore-btn" data-lang="en" style="display: none;">
+                        Explore <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-        <div data-lang="zh" id="markdown-content">加载中...</div>
+        <div data-lang="zh" id="markdown-content" style="display: none;">加载中...</div>
         <div data-lang="en" style="display: none;" id="markdown-content-en">Loading...</div>
 
         <script>
@@ -981,25 +1155,349 @@ source ~/.ohmyshell</code></pre>
 
     <style>
         #usage {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-/*            text-align: center;*/
-            width: 80%;
-            margin: 5% auto;
-
-
+            padding: 0;
+            background: transparent;
+            width: 95%;
+            max-width: 1400px;
+            margin: 40px auto;
         }
 
-        #usage h2, #usage h3 {
-            color: #333;
-/*            text-align: center;*/
+        .usage-header {
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 247, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .usage-header h2 {
+            font-size: 56px;
+            font-weight: 800;
+            color: #1d1d1f;
+            margin: 0 0 16px;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .usage-subtitle {
+            font-size: 20px;
+            color: #86868b;
+            margin: 16px 0 0;
+            font-weight: 400;
         }
 
+        /* 科技风格样式 */
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 4px 20px rgba(0, 113, 227, 0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin-top: 24px;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 113, 227, 0.4);
+            text-decoration: none;
+        }
+        
+        .features-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .feature-category h3,
+        .guide-navigation h3 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+        }
+        
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0071e3, #00d4aa, #ff9500);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 113, 227, 0.3);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+        
+        .card-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+        
+        .feature-card h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin: 0 0 8px;
+            letter-spacing: -0.01em;
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            color: #86868b;
+            margin: 0 0 16px;
+            line-height: 1.4;
+        }
+        
+        .card-tech {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tag {
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%);
+            color: #0071e3;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid rgba(0, 113, 227, 0.2);
+        }
+        
+        .nav-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .nav-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+        
+        .nav-card:hover {
+            transform: translateX(8px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(0, 113, 227, 0.15);
+            border-color: rgba(0, 113, 227, 0.3);
+        }
+        
+        .nav-number {
+            background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .nav-content {
+            flex: 1;
+        }
+        
+        .nav-content h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin: 0 0 4px;
+            letter-spacing: -0.01em;
+        }
+        
+        .nav-content p {
+            font-size: 14px;
+            color: #86868b;
+            margin: 0;
+        }
+        
+        .nav-arrow {
+            font-size: 20px;
+            color: #86868b;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-card:hover .nav-arrow {
+            transform: translateX(4px);
+            color: #0071e3;
+        }
+        
+        .appendix-section {
+            margin-top: 40px;
+        }
+        
+        .appendix-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 247, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 24px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .appendix-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 113, 227, 0.05) 0%, rgba(0, 212, 170, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .appendix-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0, 113, 227, 0.2);
+            border-color: rgba(0, 113, 227, 0.3);
+        }
+        
+        .appendix-card:hover::before {
+            opacity: 1;
+        }
+        
+        .appendix-icon {
+            font-size: 64px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+            flex-shrink: 0;
+        }
+        
+        .appendix-content {
+            flex: 1;
+        }
+        
+        .appendix-content h4 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin: 0 0 8px;
+            letter-spacing: -0.02em;
+        }
+        
+        .appendix-content p {
+            font-size: 16px;
+            color: #86868b;
+            margin: 0;
+        }
+        
+        .explore-btn {
+            background: linear-gradient(135deg, #0071e3 0%, #005bb5 100%);
+            color: white;
+            border: none;
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .explore-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .usage-header {
+                padding: 30px 20px;
+            }
+            
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .appendix-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .appendix-icon {
+                font-size: 48px;
+            }
+        }
+        
         #markdown-content {
-            border: 1px solid #ccc;
-            padding: 20px;
-            background-color: #f9f9f9;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            margin-top: 40px;
         }
 
         #markdown-content table {
@@ -1073,19 +1571,23 @@ source ~/.ohmyshell</code></pre>
 
     <style>
         #faq {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-top: 30px;
-            max-width: 80%;
-            margin: 0 auto;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
 
         #faq h2 {
-            /* font-size: 28px; */
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #1d1d1f;
             text-align: center;
+            letter-spacing: -0.02em;
         }
 
         .faq-item {
@@ -1093,17 +1595,19 @@ source ~/.ohmyshell</code></pre>
         }
 
         .faq-item h3 {
-            font-size: 20px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
         }
 
         .faq-item p {
-            font-size: 16px;
-            color: #666;
-            margin-left: 20px;
-            line-height: 1.6;
+            font-size: 17px;
+            color: #86868b;
+            margin-left: 24px;
+            line-height: 1.5;
+            font-weight: 400;
         }
     </style>
 
@@ -1161,19 +1665,23 @@ source ~/.ohmyshell</code></pre>
     </section>
     <style>
         #contact {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px;
-            margin-top: 30px;
-            max-width: 80%;
-            margin: 0 auto;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            margin: 40px auto;
+            max-width: 1000px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
 
         #contact h2 {
-            /* font-size: 28px; */
-            margin-bottom: 20px;
-            color: #333;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #1d1d1f;
             text-align: center;
+            letter-spacing: -0.02em;
         }
 
         .contact-info ul {
@@ -1182,9 +1690,10 @@ source ~/.ohmyshell</code></pre>
         }
 
         .contact-info li {
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #666;
+            margin-bottom: 16px;
+            font-size: 17px;
+            color: #86868b;
+            font-weight: 400;
         }
 
         .contact-form {
