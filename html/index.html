@@ -585,16 +585,16 @@
             
             <!-- 代码段和复制按钮 -->
             <div class="code-container" data-lang="zh">
-                <pre><code id="code-zh-1">curl -s https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh -o ~/install_gcr.sh && bash ~/install_gcr.sh && rm ~/install_gcr.sh</code></pre>
+                <pre><code id="code-zh-1">curl -fsSL https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh | sh</code></pre>
                 <button class="copy-btn" id='copy-btn-code-zh-1' onclick="copyCode('code-zh-1')">复制</button>
             </div>
             <div class="code-container" data-lang="en" style="display: none;">
-                <pre><code id="code-en-1">curl -s https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh -o ~/install_gcr.sh && bash ~/install_gcr.sh && rm ~/install_gcr.sh</code></pre>
+                <pre><code id="code-en-1">curl -fsSL https://raw.githubusercontent.com/gaojunbin/GCR/master/install_gcr.sh | sh</code></pre>
                 <button class="copy-btn" id='copy-btn-code-en-1' onclick="copyCode('code-en-1')">copy</button>
             </div>
 
-            <p data-lang="zh">您可以按照屏幕提示根据您使用的操作系统和用户权限选择对应的安装方式。</p>
-            <p data-lang="en" style="display: none;">You can follow the on-screen prompts to select the corresponding installation method based on your operating system and user permissions.</p>
+            <p data-lang="zh">安装器会列出支持的系统，用上下键或数字键选择对应的安装方式，回车确认。</p>
+            <p data-lang="en" style="display: none;">The installer lists the supported systems. Pick one with the arrow keys or the number keys and press enter.</p>
 
             <p data-lang="zh">目前一键安装支持的操作系统有：Ubuntu, MacOS, NUS HPC, NUS Medicine HPC, NSCC Singapore. 理论上一切支持zsh的操作系统（目前市面上大多数操作系统应该都支持）均可以支持GCR，但是部分操作系统安装zsh的方式略有不同，且某些安装方式需要root权限，不同权限的用户安装方式也会略有不同。 一键脚本在未来会尽可能支持更多操作系统，若在安装过程中遇到问题，可先自行安装zsh，并设置zsh为默认shell，然后再按照脚本内容自行安装GCR即可。</p>
             <p data-lang="en" style="display: none;">The operating systems currently supported by one-click installation include: Ubuntu, Mac OS, NUS HPC, NUS Medicine HPC, NSCC Singapore. In theory, all operating systems that support zsh (most operating systems currently on the market should support it) can support GCR. However, some operating systems have slightly different ways of installing zsh, and some installation methods require root permissions. The installation methods of users with different permissions will also be slightly different. The one-click script will support as many operating systems as possible in the future. If you encounter problems during the installation process, you can first install zsh yourself, set zsh as the default shell, and then install GCR yourself according to the script content.</p>
@@ -672,11 +672,11 @@ cp -r oh-my-zsh ~/.oh-my-zsh</code></pre>
 
                 <p>5) 生成GCR配置文件 .zshrc 到$HOME目录下</p>
                 <div class="code-container">
-                    <pre><code id="code-zh-7">SHOW_GCR_INFO=false
+                    <pre><code id="code-zh-7"># [ Added By GCR ]
+SHOW_GCR_INFO=false
 CHECK_GCR_UPDATE=true
-source ~/.ohmyzsh
-source ~/.p9k.zsh
-source ~/.ohmyshell</code></pre>
+source ~/.ohmyshell
+# [ Added By GCR ]</code></pre>
                     <button class="copy-btn" id='copy-btn-code-zh-7' onclick="copyCode('code-zh-7')">复制</button>
                 </div>
                 
@@ -746,11 +746,11 @@ cp -r oh-my-zsh ~/.oh-my-zsh</code></pre>
 
                 <p>5) Generate the GCR configuration file .zshrc to the $HOME directory</p>
                 <div class="code-container">
-                    <pre><code id="code-en-7">SHOW_GCR_INFO=false
+                    <pre><code id="code-en-7"># [ Added By GCR ]
+SHOW_GCR_INFO=false
 CHECK_GCR_UPDATE=true
-source ~/.ohmyzsh
-source ~/.p9k.zsh
-source ~/.ohmyshell</code></pre>
+source ~/.ohmyshell
+# [ Added By GCR ]</code></pre>
                     <button class="copy-btn" id='copy-btn-code-en-7' onclick="copyCode('code-en-7')">copy</button>
                 </div>
                 
